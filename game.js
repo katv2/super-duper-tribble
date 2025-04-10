@@ -3,7 +3,7 @@
 // ---------------------
 // Global Variables and Default Settings
 // ---------------------
-const WINDOW_TITLE = "Dungeon Machine Collector";
+const WINDOW_TITLE = "Idk";
 
 // Default modifiable settings (can be adjusted via the code builder)
 let settings = {
