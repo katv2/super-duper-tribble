@@ -587,3 +587,42 @@ loadSettings();
 savePlayerData();
 saveSettings();
 requestAnimationFrame(loop);
+// ---------------------
+// Game Loop
+// ---------------------
+let lastTime = performance.now();
+
+function gameLoop(timestamp) {
+  const dt = (timestamp - lastTime) / 1000; // delta time in seconds
+  lastTime = timestamp;
+
+  // Update and render based on current game state
+  switch (gameState) {
+    case "main-menu":
+      renderMainMenu();
+      break;
+    case "code-builder":
+      renderCodeBuilder();
+      break;
+    case "shop":
+      renderShop();
+      break;
+    case "skins":
+      renderSkinsCosmetics();
+      break;
+    case "in-game":
+      updateGame(dt);
+      renderGame();
+      break;
+  }
+
+  requestAnimationFrame(gameLoop);
+}
+
+// ---------------------
+// Start Game
+// ---------------------
+loadPlayerData();
+loadSettings();
+setState("main-menu");
+requestAnimationFrame(gameLoop);
